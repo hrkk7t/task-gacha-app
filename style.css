@@ -19,7 +19,7 @@ body {
     background-color: var(--main-bg-color);
     color: var(--font-color-light);
     height: 100vh;
-    overflow: hidden;
+    overflow: hidden; /* PCではスクロールさせない */
 }
 h1, h2, h3 {
     font-weight: 700;
@@ -186,7 +186,7 @@ ul {
     justify-content: center;
     gap: 12px;
     padding: 18px 35px;
-    font-size: 1.2em; /* ← 1.5em から 1.2em に変更 */
+    font-size: 1.2em;
     font-weight: 700;
     color: var(--primary-color);
     background-color: transparent;
@@ -249,8 +249,8 @@ ul {
 }
 #result-text {
     color: var(--font-color-light);
-    font-weight: 400; /* ← 700 から 400 (通常) に変更 */
-    font-size: 1.1em;
+    font-weight: 400;
+    font-size: 1.3em;
 }
 .settings-modal-content {
     width: 90%;
@@ -361,3 +361,31 @@ ul {
 }
 /* --- アニメーション --- */
 @keyframes popOut { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: scale(1); } }
+
+/* --- スマートフォン向け表示設定 --- */
+@media (max-width: 768px) {
+    body {
+        overflow-y: auto;
+    }
+    .container {
+        height: auto;
+        min-height: 100%;
+        padding: 15px;
+        gap: 20px;
+    }
+    .todo-panel {
+        flex-grow: 1;
+        min-height: 400px; /* メモ帳エリアの最低限の高さを確保 */
+    }
+    .settings-btn {
+        top: 15px;
+        right: 15px;
+    }
+    .todo-panel h1 {
+        font-size: 1.3em;
+    }
+    #draw-button {
+        padding: 15px 25px;
+        font-size: 1.1em;
+    }
+}

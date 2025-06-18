@@ -42,7 +42,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (savedTasks) {
             masterTasks = JSON.parse(savedTasks);
         } else {
-            masterTasks = ['プロジェクト計画を立てる', '競合調査レポートを作成', 'クライアントにメール返信', '週次報告書を提出', '経費精算を行う'];
+            // ↓↓↓ サンプルタスクを日常的なものに変更 ↓↓↓
+            masterTasks = [
+                '15分間の読書をする',
+                '部屋の掃除機をかける',
+                '5分間ストレッチをする',
+                '近所を散歩する',
+                '新しい音楽プレイリストを作る',
+                '観葉植物の世話をする'
+            ];
+            // ↑↑↑ サンプルタスクを日常的なものに変更 ↑↑↑
             saveMasterTasks();
         }
     };
